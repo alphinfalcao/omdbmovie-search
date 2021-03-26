@@ -15,7 +15,7 @@ class MovieSearch extends React.Component {
       prevY: 0
     };
   }
-  async componentDidMount() {
+   componentDidMount() {
     this.updateSearch(1,this.state.page);
      var options = {
       root: null, // Page as root
@@ -34,15 +34,12 @@ class MovieSearch extends React.Component {
         this.setState({ page: this.state.page + 1 })
     }
     this.setState({ prevY: y });
-    console.log(this.state.page);
     this.updateSearch(2,this.state.page);
   }
   updateSearch(event,page) {
     if (this.state.searchid === "") {
-        console.log(page)
       this.setState({ loading: true });
       const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=${page}`;
-      console.log(this.state.searchtitle)
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -51,14 +48,12 @@ class MovieSearch extends React.Component {
           window.scrollTo({ top: 200, behavior: 'smooth' })
         });
     } else {
-        console.log('in else')
       const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&i=${this.state.searchid}`;
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
           this.setState({ searchres1: data });
         });
-      console.log("in else");
     }
   }
   handleOnChange = (event) => {
@@ -138,12 +133,11 @@ class MovieSearch extends React.Component {
                           <p>{k.Type}</p>
                           <span>Imdb Id</span>
                           <p>{k.imdbID}</p>
-                          <a
-                            href={`movies/${k.Title}`}
-                            class="float-right mr-4 mb-2"
+                          <p
+                            className="float-right mr-4 mb-2"
                           >
                             More
-                          </a>
+                          </p>
                         </div>
                       </div>
                     </div>

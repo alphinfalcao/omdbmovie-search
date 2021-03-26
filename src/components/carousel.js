@@ -16,27 +16,16 @@ class Carousel extends React.Component {
 
   componentDidMount(){
       this.setState({moviedata:movied})
-      console.log(movied)
   }
   render(){
   const params = {
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
     slidesPerView:1,
-    spaceBetween: 30,
     loop:true
   }
   
   return (
     <div className="home-slider">
-    <Swiper onInit={this.sliderchange} onSlideChange={this.sliderchange} {...params} pagination>
+    <Swiper  {...params} pagination>
     {movied.map((k, z) => (
         <SwiperSlide key={z} style={{backgroundImage: `url(${k.Wallpaper})`,height:'670px'}}>
           <h2>{k.Title}<span>({k.Year})</span></h2>

@@ -19,7 +19,6 @@ const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&s=${path}`;
 const response = await fetch(apiUrl);
 const json = await response.json();
 this.setState({ emovies: json.Search });
-console.log(this.state.emovies);
 }
 render() {
 return (
@@ -46,7 +45,7 @@ return (
                                 <p>{k.Type}</p>
                                 <span>Imdb Id</span>
                                 <p>{k.imdbID}</p>
-                                <a href={`movies/${k.Title}`} className="float-right mr-4 mb-2">More</a>
+                                <p className="float-right mr-4 mb-2">More</p>
                             </div>
                         </div>
                     </div>
