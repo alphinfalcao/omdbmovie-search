@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Home} />
-      <Route key="/:mname" path="/:mname" component={MovieDetail} />
+      <Route path="/:mname" component={MovieDetail} />
    </Router>
   );
 }
