@@ -200,7 +200,7 @@ nav ul li a {
 }
 .title{
     position: absolute;
-    left: 26%;
+    left: 27%;
     top: 39%;
     font-size: 55px;
     color: #ffffff;
@@ -209,12 +209,12 @@ nav ul li a {
   color: white;
     font-size: 21px;
     position: absolute;
-    left: 26%;
+    left: 27%;
     top: 44%;
 }
 .mdetails{
   position: absolute;
-  left: 26%;
+  left: 27%;
   color: #ffffff;
   top: 51%;
 }
@@ -233,8 +233,8 @@ nav ul li a {
   border: 1px solid #6A7A8A;
 }
 .swiper-pagination{
-  right: 7% !important;
-  bottom: 3% !important;
+  left: -8% !important;
+  bottom: 14% !important;
   text-align: right !important;
   left: none !important;
 }
@@ -248,4 +248,29 @@ nav ul li a {
 }
 .swiper-button-next:after, .swiper-button-prev:after{
   color: #FFBF49;
+}
+
+/* loader */
+.loading-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 9999;
+}
+.loading{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top:40%;
+  z-index: 1000;
+  position: absolute;
+  width: 300px;
+  max-width: 300px;
+  min-width: 100px;
 }

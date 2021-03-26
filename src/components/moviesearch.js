@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 class MovieSearch extends React.Component {
   constructor(props) {
@@ -45,6 +48,15 @@ class MovieSearch extends React.Component {
         .then((data) => {
           this.setState({ searchres: data.Search });
           this.setState({ loading: false });
+          toast.warn(data.Error, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
           window.scrollTo({ top: 200, behavior: 'smooth' })
         });
     } else {
@@ -70,9 +82,10 @@ class MovieSearch extends React.Component {
       height: "100px",
       margin: "30px"
     };
-    const loadingTextCSS = { display: this.state.loading ? "block" : "none" };
+    const loadingTextCSS = { display: this.state.loading ? "block" : "none",textAlign:'center',fontSize:'30px' };
     return (
       <div>
+      <ToastContainer />
         <h1 className="text-center grey py-5">Explore more movies</h1>
         <div className="container-fluid">
           <div className="searchbox row w-50 m-auto py-3">

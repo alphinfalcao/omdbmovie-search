@@ -1,11 +1,15 @@
 import React from "react";
 import Exmovie from './exmovies';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "./loader";
+
 
 class MovieDetail extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
       mdetails:[],
+      loading:true
     };
   }
     async componentDidMount() {
@@ -13,12 +17,17 @@ class MovieDetail extends React.Component {
     const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&t=${title}&plot=full`;
     const response = await fetch(apiUrl);
     const json = await response.json();
+    if(response){
     this.setState({ mdetails: json });
+    this.setState({loading:false});
+    }
   }
     render() {
     return (
         <section>
-        <div className='banner'>
+        {
+                    this.state.loading ? <Loader/> : <div>
+                    <div className='banner'>
             <img src={this.state.mdetails.Poster} alt="movie-poster" className="img-fl"/>
             <h2 className="title">{this.state.mdetails.Title}</h2>
             <p className="direcor">Directed by : {this.state.mdetails.Director}</p>
@@ -70,6 +79,9 @@ class MovieDetail extends React.Component {
                 <Exmovie/>
             </div>
             </div>
+                    </div>
+        }
+       
         </section>
         );
   }

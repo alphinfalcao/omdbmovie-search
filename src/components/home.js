@@ -2,16 +2,32 @@ import React from "react";
 import Header from "./header";
 import Carousel from "./carousel";
 import MovieSearch from "./moviesearch";
+import Loader from './loader';
 
-function Home() {
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          loading:true
+        };
+      }
+    componentDidMount(){
+       this.setState({loading:false})
+       
+    }
+
+    render(){
     return (
-        <div>
+        <React.Fragment>
+        {this.state.loading ? <Loader/> : <div>
             <Header/>
             <Carousel/>
             <MovieSearch/>
-        </div>
+        </div>}
+        </React.Fragment>
     );
   }
+}
 
 
 export default Home;

@@ -20,6 +20,10 @@ const response = await fetch(apiUrl);
 const json = await response.json();
 this.setState({ emovies: json.Search });
 }
+addDefaultSrc(ev) {
+    ev.target.src =
+      "https://cdn.blankstyle.com/files/imagefield_default_images/notfound_0.png";
+}
 render() {
 return (
 <div>
