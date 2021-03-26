@@ -7,7 +7,7 @@ class Loader extends Component{
         return <div>
              <div className="loading-container">
                 <div className="loading">
-                <img src={loaderImg} width="50%"></img>
+                <img src={loaderImg} width="50%" alt="loader.gif"></img>
                 </div>
             </div>
             </div>
