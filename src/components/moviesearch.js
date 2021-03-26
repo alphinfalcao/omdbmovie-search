@@ -39,7 +39,7 @@ class MovieSearch extends React.Component {
   updateSearch(event,page) {
     if (this.state.searchid === "") {
       this.setState({ loading: true });
-      const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=${page}`;
+      const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=${page}`;
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -48,7 +48,7 @@ class MovieSearch extends React.Component {
           window.scrollTo({ top: 200, behavior: 'smooth' })
         });
     } else {
-      const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&i=${this.state.searchid}`;
+      const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&i=${this.state.searchid}`;
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {

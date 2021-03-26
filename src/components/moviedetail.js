@@ -10,7 +10,7 @@ class MovieDetail extends React.Component {
   }
     async componentDidMount() {
     let title=this.props.match.params.mname;
-    const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&t=${title}&plot=full`;
+    const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&t=${title}&plot=full`;
     const response = await fetch(apiUrl);
     const json = await response.json();
     this.setState({ mdetails: json });

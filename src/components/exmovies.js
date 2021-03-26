@@ -15,7 +15,7 @@ emovies:[]
 async componentDidMount() {
 let Title = window.location.pathname.split( '/' );
 let path = Title[1].substring(0,3);
-const apiUrl = `http://www.omdbapi.com/?&apikey=69e759&s=${path}`;
+const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${path}`;
 const response = await fetch(apiUrl);
 const json = await response.json();
 this.setState({ emovies: json.Search });
