@@ -227,7 +227,7 @@ nav ul li a {
 }
 .meta{
   position: absolute;
-  right: 13%;
+  right: 12%;
   bottom: 50%;
   padding: 5px 20px;
   border: 1px solid #6A7A8A;
@@ -273,4 +273,8 @@ nav ul li a {
   width: 300px;
   max-width: 300px;
   min-width: 100px;
+}
+.sw-h{
+  height: 367px;
+  padding: 0 15px;
 }
