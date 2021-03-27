@@ -65,6 +65,7 @@ class MovieSearch extends React.Component {
         .then((response) => response.json())
         .then((data) => {
           this.setState({ searchres1: data });
+          this.setState({ searchres: [] });
         });
     }
   }
@@ -79,7 +80,7 @@ class MovieSearch extends React.Component {
   }
   render() {
     const loadingCSS = {
-      height: "100px",
+      height: "80px",
       margin: "30px"
     };
     const loadingTextCSS = { display: this.state.loading ? "block" : "none",textAlign:'center',fontSize:'30px' };
@@ -117,7 +118,7 @@ class MovieSearch extends React.Component {
               <button onClick={this.updateSearch.bind(this)}>Search</button>
             </div>
           </div>
-          <div className="row px-5 mx-5 pt-5" style={{ minHeight: "600px" }}>
+          <div className="row px-5 mx-5 pt-5" style={{ minHeight: this.state.searchid ? "0px" : '660px' }}>
             {this.state.searchres?.map((k,index) => (
               <div className="col-sm-4 my-3" key={index}>
                 <Link to={`/${k.Title}`} className="nounderline">
@@ -159,17 +160,52 @@ class MovieSearch extends React.Component {
               </div>
             ))}
           </div>
+          {this.state.searchid && (
+              <div className="row px-5 mx-5 pt-5">
+              <div className="col-sm-4 my-3">
+                <Link to={`/${this.state.searchres1.Title}`} className="nounderline">
+                  <div className="card rounded-3">
+                    <div className="row">
+                      <div className="col-sm-6 pr-4">
+                        <img
+                          className="d-block w-100"
+                          src={this.state.searchres1.Poster}
+                          alt="poster-img"
+                          onError={this.addDefaultSrc}
+                        />
+                      </div>
+                      <div className="col-sm-6 pl-1">
+                        <div className="card-block">
+                          <div className="resp-title">
+                            <h3>
+                              {this.state.searchres1.Title}
+                            </h3>
+                          </div>
+                          <span>Year</span>
+                          <p>{this.state.searchres1.Year}</p>
+                          <span>Type</span>
+                          <p>{this.state.searchres1.Type}</p>
+                          <span>Imdb Id</span>
+                          <p>{this.state.searchres1.imdbID}</p>
+                          <p
+                            className="float-right mr-4 mb-2"
+                          >
+                            More
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+          </div>
+            )}
           <div
           ref={loadingRef => (this.loadingRef = loadingRef)}
           style={loadingCSS}
         >
           <span style={loadingTextCSS}>Loading...</span>
         </div>
-          <div className="row">
-            {this.state.searchid && (
-              <h2>1{console.log(this.state.searchres1)}</h2>
-            )}
-          </div>
         </div>
       </div>
     );

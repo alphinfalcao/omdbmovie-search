@@ -9,7 +9,8 @@ class Exmovie extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
-emovies:[]
+emovies:[],
+nload:true
 };
 }
 async componentDidMount() {
@@ -19,6 +20,9 @@ const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${path}`;
 const response = await fetch(apiUrl);
 const json = await response.json();
 this.setState({ emovies: json.Search });
+if(typeof(this.state.emovies)==='undefined'){
+    this.setState({nload:false})
+}
 }
 addDefaultSrc(ev) {
     ev.target.src =
@@ -28,8 +32,8 @@ render() {
 return (
 <div>
 <h1 className="text-left grey py-5">Explore more movies</h1>
-    <Swiper slidesPerView={3} spaceBetween={50}
-        loop={true} observer={true} navigation>
+    {this.state.nload ? <Swiper slidesPerView={3} spaceBetween={50}
+        loop={true} observer={true} navigation className='sw-h'>
         {this.state.emovies?.map((k, z) => (
         <SwiperSlide key={z}>
         <Link to={`/${k.Title}`} className="nounderline">
@@ -57,9 +61,7 @@ return (
                 </Link>
         </SwiperSlide>
         ))}
-    </Swiper>
-
-
+    </Swiper>: <p className="text-center">No Similar Movies Found</p> }
 </div>
 
 );

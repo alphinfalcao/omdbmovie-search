@@ -6,6 +6,7 @@ import {movied} from '../movie';
 SwiperCore.use([Virtual,Pagination]);
 
 
+
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
