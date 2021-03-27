@@ -32,7 +32,16 @@ render() {
 return (
 <div>
 <h1 className="text-left grey py-5">Explore more movies</h1>
-    {this.state.nload ? <Swiper slidesPerView={3} spaceBetween={50}
+    {this.state.nload ? <Swiper slidesPerView={3} spaceBetween={50} breakpoints={{
+    // when window width is >= 640px
+    320: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 768px
+    768: {
+      slidesPerView: 3,
+    },
+  }}
         loop={true} observer={true} navigation className='sw-h'>
         {this.state.emovies?.map((k, z) => (
         <SwiperSlide key={z}>

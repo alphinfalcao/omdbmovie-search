@@ -232,12 +232,6 @@ nav ul li a {
   padding: 5px 20px;
   border: 1px solid #6A7A8A;
 }
-.swiper-pagination{
-  left: -8% !important;
-  bottom: 14% !important;
-  text-align: right !important;
-  left: none !important;
-}
 .swiper-pagination-bullet{
   width: 25px !important;
   height: 4px !important;
@@ -277,4 +271,50 @@ nav ul li a {
 .sw-h{
   height: 367px;
   padding: 0 15px;
+}
+.w-half{
+  width: 50%;
+}
+@media only screen and (max-width:480px){
+  .w-100-sm{
+    width: 100%;
+  }
+  .logo img {
+    width: 111px;
+  }
+  .logo{
+    margin: 15px 25px;
+  }
+  .swiper-slide h2{
+    margin-top: 31%;
+    font-size: 32px;
+    text-align: center;
+    margin-left: 0px;
+  }
+  .swiper-slide p{
+    text-align: center;
+    margin-left: 0px;
+    font-size: 17px;
+    margin: 0px 10px;
+  }
+  .banner p,h2{
+    display: none;
+  }
+  .banner img{
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+  }
+  .sw-h{
+    height: auto;
+  }
+}
+@media only screen and (min-width:1200px){
+  .swiper-pagination{
+    left: -8% !important;
+    bottom: 14% !important;
+    text-align: right !important;
+    left: none !important;
+  }
 }

@@ -57,7 +57,7 @@ class MovieSearch extends React.Component {
             draggable: true,
             progress: undefined,
             });
-          window.scrollTo({ top: 200, behavior: 'smooth' })
+          window.scrollTo({ top: 500, behavior: 'smooth' })
         });
     } else {
       const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&i=${this.state.searchid}`;
@@ -89,8 +89,8 @@ class MovieSearch extends React.Component {
       <ToastContainer />
         <h1 className="text-center grey py-5">Explore more movies</h1>
         <div className="container-fluid">
-          <div className="searchbox row w-50 m-auto py-3">
-            <div className="col-3">
+          <div className="searchbox row w-half w-100-sm m-auto py-3">
+            <div className="col-lg-3 col-12">
               <input
                 type="text"
                 name="searchtitle"
@@ -98,7 +98,7 @@ class MovieSearch extends React.Component {
                 onChange={this.handleOnChange}
               />
             </div>
-            <div className="col-3">
+            <div className="col-lg-3 col-12">
               <input
                 type="text"
                 placeholder="Year"
@@ -106,7 +106,7 @@ class MovieSearch extends React.Component {
                 onChange={this.handleOnChange}
               />
             </div>
-            <div className="col-3">
+            <div className="col-lg-3 col-12">
               <input
                 type="text"
                 placeholder="Id"
@@ -118,13 +118,13 @@ class MovieSearch extends React.Component {
               <button onClick={this.updateSearch.bind(this)}>Search</button>
             </div>
           </div>
-          <div className="row px-5 mx-5 pt-5" style={{ minHeight: this.state.searchid ? "0px" : '660px' }}>
+          <div className="row px-lg-5 mx-lg-5 pt-5" style={{ minHeight: this.state.searchid ? "0px" : '660px' }}>
             {this.state.searchres?.map((k,index) => (
-              <div className="col-sm-4 my-3" key={index}>
+              <div className="col-sm-12 col-lg-4 my-3" key={index}>
                 <Link to={`/${k.Title}`} className="nounderline">
                   <div className="card rounded-3">
                     <div className="row">
-                      <div className="col-sm-6 pr-4">
+                      <div className="col-sm-6 pr-lg-4">
                         <img
                           className="d-block w-100"
                           src={k.Poster}
@@ -132,8 +132,8 @@ class MovieSearch extends React.Component {
                           onError={this.addDefaultSrc}
                         />
                       </div>
-                      <div className="col-sm-6 pl-1">
-                        <div className="card-block">
+                      <div className="col-sm-6 pl-lg-1">
+                        <div className="card-block p-3 p-lg-0">
                           <div className="resp-title">
                             <h3>
                               {k.Title.length > 32
@@ -148,7 +148,7 @@ class MovieSearch extends React.Component {
                           <span>Imdb Id</span>
                           <p>{k.imdbID}</p>
                           <p
-                            className="float-right mr-4 mb-2"
+                            className="float-lg-right text-center mr-4 mb-2"
                           >
                             More
                           </p>
@@ -161,12 +161,12 @@ class MovieSearch extends React.Component {
             ))}
           </div>
           {this.state.searchid && (
-              <div className="row px-5 mx-5 pt-5">
+              <div className="row px-lg-5 mx-lg-5 pt-lg-5">
               <div className="col-sm-4 my-3">
                 <Link to={`/${this.state.searchres1.Title}`} className="nounderline">
                   <div className="card rounded-3">
                     <div className="row">
-                      <div className="col-sm-6 pr-4">
+                      <div className="col-sm-6 pr-lg-4">
                         <img
                           className="d-block w-100"
                           src={this.state.searchres1.Poster}
@@ -174,8 +174,8 @@ class MovieSearch extends React.Component {
                           onError={this.addDefaultSrc}
                         />
                       </div>
-                      <div className="col-sm-6 pl-1">
-                        <div className="card-block">
+                      <div className="col-sm-6 pl-lg-1">
+                        <div className="card-block p-3 p-lg-0">
                           <div className="resp-title">
                             <h3>
                               {this.state.searchres1.Title}
@@ -188,7 +188,7 @@ class MovieSearch extends React.Component {
                           <span>Imdb Id</span>
                           <p>{this.state.searchres1.imdbID}</p>
                           <p
-                            className="float-right mr-4 mb-2"
+                            className="float-lg-right text-center mr-4 mb-2"
                           >
                             More
                           </p>

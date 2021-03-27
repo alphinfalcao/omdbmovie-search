@@ -37,10 +37,10 @@ class MovieDetail extends React.Component {
         <div className="w-75 m-auto py-5">     
             <div className="plot">
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-lg-4 col-12">
                         <h3>PLOT:</h3>
                     </div>
-                    <div className="col-6">
+                    <div className="col-lg-6 col-12">
                         <p>
                             {this.state.mdetails.Plot}
                         </p>
@@ -52,18 +52,18 @@ class MovieDetail extends React.Component {
             <div className="w-75 m-auto pt-5">
             <div className="crew">
                 <div className="row">
-                    <div className="col-4"><h3>CREW:</h3></div>
-                    <div className="col-6">
+                    <div className="col-lg-4 col-12"><h3>CREW:</h3></div>
+                    <div className="col-lg-6 col-12">
                         <div className="row">
-                            <div className="col-4">
+                            <div className="col-12 col-lg-4">
                                 <p>Directed by:</p>
                                 <p>{this.state.mdetails.Director}</p>
                             </div>
-                            <div className="col-4">
+                            <div className="col-12 col-lg-4">
                                  <p>Writer</p>
                                 <p>{this.state.mdetails.Writer}</p>
                             </div>
-                            <div className="col-4">
+                            <div className="col-12 col-lg-4">
                                 <p>Actors</p>
                                 <p>{this.state.mdetails.Actors}</p>
                             </div>
