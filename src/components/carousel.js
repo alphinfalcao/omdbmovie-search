@@ -28,7 +28,7 @@ class Carousel extends React.Component {
     <div className="home-slider">
     <Swiper  {...params} pagination>
     {movied.map((k, z) => (
-        <SwiperSlide key={z} style={{backgroundImage: `url(${k.Wallpaper})`,height:'650px'}}>
+        <SwiperSlide key={z} style={{backgroundImage: `url(${k.Wallpaper})`,height:'680px'}}>
           <h2>{k.Title}<span>({k.Year})</span></h2>
           <p>Directed by : {k.Director}</p>
           <div className="row">
