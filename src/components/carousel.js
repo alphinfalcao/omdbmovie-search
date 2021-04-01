@@ -1,9 +1,9 @@
 import { Swiper,SwiperSlide} from 'swiper/react';
 import 'swiper/swiper-bundle.css'
 import React from "react";
-import SwiperCore, { Virtual,Pagination } from 'swiper';
+import SwiperCore, { Virtual,Pagination,Autoplay } from 'swiper';
 import {movied} from '../movie';
-SwiperCore.use([Virtual,Pagination]);
+SwiperCore.use([Virtual,Pagination,Autoplay]);
 
 
 
@@ -21,7 +21,10 @@ class Carousel extends React.Component {
   render(){
   const params = {
     slidesPerView:1,
-    loop:true
+    loop:true,
+    autoplay: {
+      delay: 2500,
+    },
   }
   
   return (
