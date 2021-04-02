@@ -48,7 +48,7 @@ return (
         <Link to={`/${k.Title}`} className="nounderline">
                 <div className="card rounded-3">
                     <div className="row">
-                        <div className="col-sm-6 pr-4">
+                        <div className="col-sm-6 pr-lg-4">
                             <img className="d-block w-100" src={k.Poster} alt="poster-img" onError={this.addDefaultSrc} />
                         </div>
                         <div className="col-sm-6">

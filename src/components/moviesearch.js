@@ -59,12 +59,12 @@ class MovieSearch extends React.Component {
           draggable: true,
           progress: undefined,
           });
-       console.log(data)
       });
     }
   }
   updateSearch(event) {
     if (this.state.searchid === "") {
+      if(this.state.searchtitle!==""){
       this.setState({ loading: true });
       const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=1`;
       fetch(apiUrl)
@@ -72,6 +72,11 @@ class MovieSearch extends React.Component {
         .then((data) => {
           this.setState({ searchres: data.Search });
         });
+      }
+      if(this.state.searchtitle===""){
+        toast.warn("Enter a movie name");
+      }
+      console.log(this.state.searchtitle)
     } else {
       const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&i=${this.state.searchid}`;
       fetch(apiUrl)
@@ -79,6 +84,7 @@ class MovieSearch extends React.Component {
         .then((data) => {
           this.setState({ searchres1: data });
           this.setState({ searchres: [] });
+          this.setState({ loading: false });
         });
     }
   }
@@ -100,7 +106,7 @@ class MovieSearch extends React.Component {
     return (
       <div>
       <ToastContainer />
-        <h1 className="text-center grey py-5">Explore more movies</h1>
+        <h1 className="text-center grey py-lg-5 pt-4">Explore more movies</h1>
         <div className="container-fluid">
           <div className="searchbox row w-half w-100-sm m-auto py-3">
             <div className="col-lg-3 col-12">
@@ -127,13 +133,13 @@ class MovieSearch extends React.Component {
                 onChange={this.handleOnChange}
               />
             </div>
-            <div className="col-3">
+            <div className="col-lg-3 col-12">
               <button onClick={this.updateSearch.bind(this)}>Search</button>
             </div>
           </div>
           <div className="row px-lg-5 mx-lg-5 pt-5" style={{ minHeight: this.state.searchid ? "0px" : '660px' }}>
             {this.state.searchres?.map((k,index) => (
-              <div className="col-sm-12 col-lg-4 my-3" key={index}>
+              <div className="col-sm-12 col-lg-6 col-xl-4 my-3" key={index}>
                 <Link to={`/${k.Title}`} className="nounderline">
                   <div className="card rounded-3">
                     <div className="row">
@@ -146,7 +152,7 @@ class MovieSearch extends React.Component {
                         />
                       </div>
                       <div className="col-sm-6 pl-lg-1">
-                        <div className="card-block p-3 p-lg-0">
+                        <div className="card-block p-3 p-lg-0 pt-lg-3">
                           <div className="resp-title">
                             <h3>
                               {k.Title.length > 32
@@ -154,14 +160,22 @@ class MovieSearch extends React.Component {
                                 : k.Title}
                             </h3>
                           </div>
-                          <span>Year</span>
+                          <div className="row">
+                            <div className="col-lg-12 col-4">
+                            <span>Year</span>
                           <p>{k.Year}</p>
-                          <span>Type</span>
-                          <p>{k.Type}</p>
-                          <span>Imdb Id</span>
-                          <p>{k.imdbID}</p>
+                          </div>
+                          <div className="col-lg-12 col-4">
+                            <span>Type</span>
+                            <p>{k.Type}</p>
+                          </div>
+                          <div className="col-lg-12 col-4">
+                            <span>Imdb Id</span>
+                            <p>{k.imdbID}</p>
+                          </div>
+                          </div>
                           <p
-                            className="float-lg-right text-center mr-4 mb-2"
+                            className="float-lg-right mr-4 mb-2"
                           >
                             More
                           </p>

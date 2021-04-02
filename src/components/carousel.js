@@ -22,9 +22,9 @@ class Carousel extends React.Component {
   const params = {
     slidesPerView:1,
     loop:true,
-    autoplay: {
+   /*  autoplay: {
       delay: 2500,
-    },
+    }, */
   }
   
   return (
@@ -32,14 +32,14 @@ class Carousel extends React.Component {
     <Swiper  {...params} pagination>
     {movied.map((k, z) => (
         <SwiperSlide key={z} style={{backgroundImage: `url(${k.Wallpaper})`,height:'680px'}}>
-          <h2>{k.Title}<span>({k.Year})</span></h2>
+          <h2 className="mtitle">{k.Title}<span>({k.Year})</span></h2>
           <p>Directed by : {k.Director}</p>
           <div className="row">
             <div className="col-12 col-lg-2">
               <p className="mb-0" style={{color:'#FFBF49'}}><span style={{fontSize:'45px'}}>{k.imdbRating}</span>/10<br/>
               IMDB</p>
             </div>
-            <div className="col-12 col-lg-6"><p className="ml-0 mb-0">{k.Plot}</p></div>
+            <div className="col-12 col-lg-6 px-md-5"><p className="ml-0 mb-0 pt-lg-2">{k.Plot}</p></div>
           </div>
           <p className="mb-0 pt-5"><span>{k.Runtime}</span> | <span>{k.Genre}</span> | <span>{k.Language}</span></p>
           </SwiperSlide>
