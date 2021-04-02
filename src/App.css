@@ -317,4 +317,30 @@ nav ul li a {
     text-align: right !important;
     left: none !important;
   }
+  .scrolltop{
+    position: fixed;
+    bottom: 4%;
+    right: 3%;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 48px;
+    width: 48px;
+  }
+  .closeb{
+    position: absolute;
+    left: 12%;
+    top: 7%;
+    height: 35px;
+    width: 35px;
+    background-color: #A9AAAA;
+    font-size: 19px;
+    line-height: 39px;
+    color: #ffffff;
+    border-radius: 50%;
+    border: none;
+  }
 }

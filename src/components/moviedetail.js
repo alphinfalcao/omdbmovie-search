@@ -6,6 +6,7 @@ import Loader from "./loader";
 class MovieDetail extends React.Component {
     constructor(props) {
     super(props);
+    this.goBack = this.goBack.bind(this);
     this.state = {
       mdetails:[],
       loading:true
@@ -22,9 +23,13 @@ class MovieDetail extends React.Component {
     this.setState({loading:false});
     }
   }
+    goBack(){
+    this.props.history.goBack();
+    }
     render() {
     return (
         <section>
+        <button type="button" class="closeb" onClick={this.goBack}>X</button>
         {
                     this.state.loading ? <Loader/> : <div>
                     <div className='banner'>

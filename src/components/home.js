@@ -14,7 +14,9 @@ class Home extends React.Component {
     componentDidMount(){
        this.setState({loading:false})
     }
-
+    top =()=>{
+      window.scrollTo({ top: 500, behavior: 'smooth' })
+    } 
     render(){
     return (
         <React.Fragment>
@@ -23,6 +25,7 @@ class Home extends React.Component {
             <Carousel/>
             <MovieSearch/>
         </div>}
+        <button className="scrolltop" onClick={this.top}>☝️</button>
         </React.Fragment>
     );
   }

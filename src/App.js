@@ -10,7 +10,7 @@ function App() {
     <Router>
      <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/:mname" component={MovieDetail} />
+      <Route path="/:mname" render={(props) => <MovieDetail {...props} key={Date.now()}/>} />
       </Switch>
    </Router>
   );

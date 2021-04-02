@@ -18,8 +18,7 @@ class MovieSearch extends React.Component {
       prevY: 0
     };
   }
-   componentDidMount() {
-    this.updateSearch(1,this.state.page);
+   componentDidMount() {  
      var options = {
       root: null, // Page as root
       rootMargin: "0px",
@@ -37,27 +36,41 @@ class MovieSearch extends React.Component {
         this.setState({ page: this.state.page + 1 })
     }
     this.setState({ prevY: y });
-    this.updateSearch(2,this.state.page);
+    this.iscroll(1,this.state.page);
   }
-  updateSearch(event,page) {
+  iscroll(event,page){
+    if (this.state.searchid === "") {
+    this.setState({ loading: true });
+    const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=${page}`;
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        for(let j=0;j<=data.Search?.length -1;j++){
+          this.setState(prevState => ({
+            searchres: [...prevState.searchres, data.Search[j]]
+          }))}
+        this.setState({ loading: false });
+        toast.warn(data.Error, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+       console.log(data)
+      });
+    }
+  }
+  updateSearch(event) {
     if (this.state.searchid === "") {
       this.setState({ loading: true });
-      const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=${page}`;
+      const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&s=${this.state.searchtitle}&y=${this.state.searchyear}&page=1`;
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
           this.setState({ searchres: data.Search });
-          this.setState({ loading: false });
-          toast.warn(data.Error, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-          window.scrollTo({ top: 500, behavior: 'smooth' })
         });
     } else {
       const apiUrl = `https://www.omdbapi.com/?&apikey=69e759&i=${this.state.searchid}`;
