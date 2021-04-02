@@ -79,7 +79,7 @@ class MovieDetail extends React.Component {
             </div>
             </div>
             </div>
-            <div className="w-75 m-auto">
+            <div className="w-100-sm w-75 m-auto">
             <div className="exmovies">
                 <Exmovie/>
             </div>

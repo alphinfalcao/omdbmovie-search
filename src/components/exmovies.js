@@ -39,6 +39,9 @@ return (
     },
     // when window width is >= 768px
     768: {
+      slidesPerView: 1,
+    },
+    1200: {
       slidesPerView: 3,
     },
   }}
@@ -48,20 +51,28 @@ return (
         <Link to={`/${k.Title}`} className="nounderline">
                 <div className="card rounded-3">
                     <div className="row">
-                        <div className="col-sm-6 pr-lg-4">
+                        <div className="col-sm-6 pr-lg-4 pr-0">
                             <img className="d-block w-100" src={k.Poster} alt="poster-img" onError={this.addDefaultSrc} />
                         </div>
                         <div className="col-sm-6">
-                            <div className="card-block">
+                            <div className="card-block card-block px-2 px-lg-0">
                             <div className="resp-title">
                                <h3>{k.Title.length> 32?k.Title.substr(0,32)+"...":k.Title}</h3>
                                </div>
-                                <span>Year</span>
+                               <div className="row">
+                                    <div className="col-lg-12 col-4">
+                                    <span>Year</span>
                                 <p>{k.Year}</p>
-                                <span>Type</span>
-                                <p>{k.Type}</p>
-                                <span>Imdb Id</span>
-                                <p>{k.imdbID}</p>
+                                </div>
+                                <div className="col-lg-12 col-4">
+                                    <span>Type</span>
+                                    <p>{k.Type}</p>
+                                </div>
+                                <div className="col-lg-12 col-4">
+                                    <span>Imdb Id</span>
+                                    <p>{k.imdbID}</p>
+                                </div>
+                          </div>
                                 <p className="float-right mr-4 mb-2">More</p>
                             </div>
                         </div>

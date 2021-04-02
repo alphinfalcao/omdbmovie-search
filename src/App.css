@@ -279,11 +279,21 @@ nav ul li a {
   padding: 0 15px;
 }
 @media only screen and (max-width:480px){
+  .banner {
+    background: none;
+    height: 560px;
+  }
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 50px !important;
+  }
+  nav ul{
+    padding-right: 0px;
+  }
   .card img {
-    height: auto;
+    height: 430px;
 }
   .w-100-sm{
-    width: 100%;
+    width: 100% !important;
   }
   .logo img {
     width: 111px;
@@ -291,13 +301,14 @@ nav ul li a {
   .logo{
     margin: 15px 25px;
   }
+  .exmovies{margin-bottom: 40px;}
   .swiper-slide h2{
     margin-top: 31%;
     font-size: 32px;
     text-align: center;
     margin-left: 0px;
   }
-  .swiper-slide p{
+  .home-slider .swiper-slide p{
     text-align: center;
     margin-left: 0px;
     font-size: 17px;
